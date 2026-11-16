@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bluedawn Games</title>
-<meta name="description" content="Bluedawn Games is an independent game studio and engineering consultancy, founded by a principal engineer with 21 years in games, embedded devices and cloud data.">
+<meta name="description" content="Bluedawn Games LLC is an independent game studio and engineering consultancy, founded by a principal engineer with 21 years in games, embedded devices and cloud data.">
 <meta property="og:title" content="Bluedawn Games">
 <meta property="og:description" content="An independent game studio and engineering consultancy: original games, and senior engineering for teams that need it.">
 <meta property="og:type" content="website">
@@ -300,6 +300,30 @@
   footer a { text-decoration: none; }
   footer a:hover { color: var(--ink); }
 
+  /* our games: one card per title, screenshot beside the words */
+  .games-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .game {
+    display: grid; grid-template-columns: 190px 1fr; gap: 28px; align-items: start;
+    padding: clamp(24px, 3vw, 32px); border-radius: 28px;
+    background: var(--surface); border: 1px solid var(--line);
+    box-shadow: 0 12px 32px -20px rgba(var(--shadow), .25);
+  }
+  .game .shot img {
+    display: block; width: 100%; height: auto; border-radius: 22px;
+    box-shadow: 0 16px 32px -16px rgba(var(--shadow), .35), 0 0 0 1px var(--line);
+  }
+  .game-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .game-head img { width: 56px; height: 56px; border-radius: 14px; flex: none; }
+  .game-head h3 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+  .game-head span { display: block; color: var(--muted); font-size: 14px; line-height: 1.4; }
+  .game p { margin: 0 0 16px; color: var(--muted); }
+  .game .soon {
+    display: inline-block; margin-bottom: 16px; padding: 5px 12px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent-hover); font-size: 13px; font-weight: 600;
+  }
+  .game .links { margin: 0; font-size: 15px; }
+  .game .links a { color: var(--accent-hover); font-weight: 500; }
+
   a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
 
   /* gentle reveal as sections scroll in, where the browser supports it */
@@ -315,6 +339,7 @@
     .stats div:nth-child(n+3) { border-top: 1px solid var(--line); }
     .eras { grid-template-columns: 1fr; }
     .values .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .games-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
     section { padding: 72px 0; }
@@ -327,6 +352,10 @@
     .services-grid, .routes, .engage, .values ul { grid-template-columns: 1fr; }
     .stats div { padding: 20px; }
     .section-intro { margin-bottom: 40px; }
+  }
+  @media (max-width: 520px) {
+    .game { grid-template-columns: 1fr; }
+    .game .shot { max-width: 220px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -353,6 +382,7 @@
     </a>
     <nav class="nav" aria-label="Main">
       <a href="#studio">Studio</a>
+      <a href="#games">Games</a>
       <a href="#experience">Experience</a>
       <a href="#services">Services</a>
       <a class="nav-cta" href="#contact">Work with us</a>
@@ -366,7 +396,7 @@
       <div>
         <p class="eyebrow">Independent studio &amp; engineering partner</p>
         <h1>We make games, and the <span class="grad">engineering</span> behind them.</h1>
-        <p class="lede">Bluedawn Games builds original games that explore new ground. We also bring decades of senior experience in game development, embedded systems and data platforms to teams who need it.</p>
+        <p class="lede">Bluedawn Games LLC is an independent studio that builds original games that explore new ground. We also bring decades of senior experience in game development, embedded systems and data platforms to teams who need it.</p>
         <div class="ctas">
           <a class="btn" href="#contact">
             Start a project
@@ -440,14 +470,59 @@
         <article class="door games reveal">
           <span class="tag">Our games</span>
           <h3>Original worlds that play beyond the edges.</h3>
-          <p>We make fun, unique games that explore new ground: ideas that haven't been played yet, built with care. Our first worlds are taking shape now.</p>
-          <a class="btn ghost" href="mailto:hello@bluedawngames.com?subject=Keep%20me%20posted">Hear about them first</a>
+          <p>We make fun, unique games that explore new ground: ideas that haven't been played yet, built with care. Our first two, Gravity Swirl and Dawnsage, are coming soon to iPhone and Android.</p>
+          <a class="btn ghost" href="#games">See our games</a>
         </article>
         <article class="door clients reveal">
           <span class="tag">Your project</span>
           <h3>Senior engineering, on contract or as advisors.</h3>
           <p>Need a game system built, an embedded device that updates itself safely, or a data platform that scales? We join your team, or bring a senior team of our own, for as long as you need us.</p>
           <a class="btn" href="#services">See what we do</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="games-list" id="games">
+    <div class="wrap">
+      <div class="section-intro reveal">
+        <p class="eyebrow">Our games</p>
+        <h2>Our first two <span class="grad">worlds.</span></h2>
+        <p>Made in-house by Bluedawn Games LLC, and coming soon to the App Store and Google Play.</p>
+      </div>
+      <div class="games-grid">
+        <article class="game reveal">
+          <div class="shot">
+            <img src="games/gravity-swirl.webp" width="520" height="924" loading="lazy" alt="Gravity Swirl: a board of stars, moons, comets and galaxies in deep space, with moves and score at the top.">
+          </div>
+          <div>
+            <div class="game-head">
+              <img src="games/gravity-swirl-icon.webp" width="144" height="144" alt="">
+              <div><h3>Gravity Swirl</h3><span>Puzzle game · iPhone &amp; Android</span></div>
+            </div>
+            <span class="soon">Coming soon</span>
+            <p>A cosmic match-three puzzle. Match stars, moons, comets and galaxies, chain combos into powerful specials, and travel a galaxy map across 200 levels.</p>
+            <p>Free to play, with a one-time purchase to remove ads.</p>
+            <p class="links"><a href="/gravity-swirl/privacy/">Privacy policy</a></p>
+          </div>
+        </article>
+        <article class="game reveal">
+          <div class="shot">
+            <picture>
+              <source srcset="games/dawnsage-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="games/dawnsage-light.webp" width="520" height="1127" loading="lazy" alt="Dawnsage: a teaching from Lao Tzu under a starry sky, with the star Lumen sharing a thought.">
+            </picture>
+          </div>
+          <div>
+            <div class="game-head">
+              <img src="games/dawnsage-icon.webp" width="144" height="144" alt="">
+              <div><h3>Dawnsage</h3><span>Daily wisdom · iPhone &amp; Android</span></div>
+            </div>
+            <span class="soon">Coming soon</span>
+            <p>One teaching a day, chosen for how you feel, from Marcus Aurelius, Confucius, Lao Tzu, the Buddha and proverbs from around the world. Then a question to reflect on, a small practice to live it, and a star that grows with you.</p>
+            <p>No account, no ads and no tracking: everything stays on your phone.</p>
+            <p class="links"><a href="/dawnsage/privacy/">Privacy policy</a></p>
+          </div>
         </article>
       </div>
     </div>
@@ -619,6 +694,7 @@
     <span>© 2026 Bluedawn Games LLC · Made at first light.</span>
     <nav aria-label="Footer">
       <a href="#studio">Studio</a>
+      <a href="#games">Games</a>
       <a href="#experience">Experience</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
